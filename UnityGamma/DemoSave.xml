@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<OuterData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <patientName>Вася</patientName>
+  <sessionDate>2013-07-30T00:00:00+04:00</sessionDate>
+  <sessionLength>5</sessionLength>
+  <sessionType>Демонстрационный</sessionType>
+  <fromMonitor>65</fromMonitor>
+  <horDev>0</horDev>
+  <horDevDin>0</horDevDin>
+  <verDev>0</verDev>
+  <verDevDin>0</verDevDin>
+  <hits>0</hits>
+  <miss>2</miss>
+  <balls>0</balls>
+</OuterData>

@@ -1,0 +1,20 @@
+Starting at 9/2/2013 5:15 PM
+Screen width: 1163
+Screen height: 639
+File to load: 
+Loaded File
+Level loaded
+Starting at 9/2/2013 5:16 PM
+Screen width: 1163
+Screen height: 639
+File to load: 
+Loaded File
+Level loaded
+Quiting
+Starting at 9/2/2013 5:16 PM
+Screen width: 1163
+Screen height: 639
+File to load: 
+Loaded File
+Level loaded
+Quiting
