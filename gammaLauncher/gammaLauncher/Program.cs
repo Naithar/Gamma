@@ -42,7 +42,7 @@ namespace gammaLauncher
         static void StartGamma(string fileName)
         {
             Process newApplication = new Process();
-            newApplication.StartInfo.FileName = "gamma.exe";
+            newApplication.StartInfo.FileName = "exercise.exe";
             Rectangle screen = Screen.PrimaryScreen.Bounds;
             //fileName = fileName.Replace(" ", "^");
             newApplication.StartInfo.Arguments = string.Format("-screen-width {0} -screen-height {1} -file \"{2}\"", screen.Width, screen.Height, fileName);

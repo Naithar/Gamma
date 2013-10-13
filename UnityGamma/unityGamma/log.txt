@@ -1,0 +1,7 @@
+Starting at 10/13/2013 9:11 PM
+Screen width: 1920
+Screen height: 1080
+File to load: C:\Users\Naithar\Documents\Unity Test Projects\UnityGamma\bin\234.gsf
+Loaded File
+Level loaded
+Quiting

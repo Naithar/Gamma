@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SessionResults xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <sessionResults>
+    <OuterData>
+      <patientName>123</patientName>
+      <sessionDate>2013-10-13T00:00:00+04:00</sessionDate>
+      <sessionLength>21</sessionLength>
+      <sessionType>Демонстрационный</sessionType>
+      <fromMonitor>65</fromMonitor>
+      <horDev>3.8</horDev>
+      <horDevDin>0</horDevDin>
+      <verDev>8.2</verDev>
+      <verDevDin>0</verDevDin>
+      <hits>5</hits>
+      <miss>0</miss>
+      <balls>50</balls>
+    </OuterData>
+  </sessionResults>
+</SessionResults>
