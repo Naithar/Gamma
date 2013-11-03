@@ -1154,7 +1154,7 @@ namespace Gamma4
             trackBarPalitreR.Enabled = true;
             trackBarPalitreG.Enabled = true;
             trackBarPalitreB.Enabled = true;
-            pictureBoxPalitres.Image = Gamma4.Properties.Resources.palitreRed;
+            pictureBoxPalitres.Image = Gamma.Properties.Resources.palitreRed;
             if (radioButtonPalitreColorsRed.Checked == true)
             {
                 textBoxPalitreColorsRedR.Enabled = true;
@@ -1177,7 +1177,7 @@ namespace Gamma4
             trackBarPalitreR.Enabled = true;
             trackBarPalitreG.Enabled = true;
             trackBarPalitreB.Enabled = true;
-            pictureBoxPalitres.Image = Gamma4.Properties.Resources.palitreBlue;
+            pictureBoxPalitres.Image = Gamma.Properties.Resources.palitreBlue;
             if (radioButtonPalitreColorsBlue.Checked == true)
             {
                 textBoxPalitreColorsBlueR.Enabled = true;
@@ -1200,7 +1200,7 @@ namespace Gamma4
             trackBarPalitreR.Enabled = true;
             trackBarPalitreG.Enabled = true;
             trackBarPalitreB.Enabled = true;
-            pictureBoxPalitres.Image = Gamma4.Properties.Resources.palitreGrey;
+            pictureBoxPalitres.Image = Gamma.Properties.Resources.palitreGrey;
             if (radioButtonPalitreColorsBackground.Checked == true)
             {
                 textBoxPalitreColorsBGR.Enabled = true;
@@ -1728,7 +1728,7 @@ namespace Gamma4
                     MessageBox.Show("Ошибка создания файла, возможно невыбраны какие-то параметры", "Внимание");
                     return;
                 }
-                pictureBoxFinishLoading.Image = Gamma4.Properties.Resources.loading;
+                pictureBoxFinishLoading.Image = Gamma.Properties.Resources.loading;
                 pictureBoxFinishLoading.Visible = true;
                 //создание файла
                 SaveFileDialog sfd = new SaveFileDialog();

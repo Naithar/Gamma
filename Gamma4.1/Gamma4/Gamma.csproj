@@ -8,8 +8,8 @@
     <ProjectGuid>{FB35B941-7ADE-4C95-BE0F-5365C40DABD2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gamma4</RootNamespace>
-    <AssemblyName>Gamma4</AssemblyName>
+    <RootNamespace>Gamma</RootNamespace>
+    <AssemblyName>Gamma</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Gamma.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClassesLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -162,6 +165,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Gamma.ico" />
     <Content Include="Images\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
