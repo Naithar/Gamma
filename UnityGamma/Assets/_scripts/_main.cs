@@ -24,7 +24,7 @@ public class _main : MonoBehaviour
     public Vector2 mousePosition;
 
     public Vector2 mixMoveVector;
-    public float mixMoveSpeed = 50;
+    public float mixMoveSpeed = 75;
     public bool isFollowing = false;
     public float followingTime = 0;
 
@@ -246,8 +246,12 @@ public class _main : MonoBehaviour
                     this.backgroundObject.textureScale.x = 10;
                     this.backgroundObject.textureScale.y = 5;
 
-                    switch (this.data.patternDirection)
+                    switch (this.data.sceneSubtype)
                     {
+                        case 0:
+                            {
+                            }
+                            break;
                         case 1:
                             {
                                 this.backgroundObject.textureOffset.x = 0.1f;
@@ -256,20 +260,22 @@ public class _main : MonoBehaviour
                             break;
                         case 2:
                             {
-                                this.backgroundObject.textureOffset.x = 0.1f;
-                                this.backgroundObject.textureOffset.y = 0;
-                            }
-                            break;
-                        case 3:
-                            {
                                 this.backgroundObject.textureOffset.x = 0;
                                 this.backgroundObject.textureOffset.y = -0.1f;
                             }
                             break;
-                        case 4:
+                    }
+
+                    switch (this.data.patternDirection)
+                    {
+                        case 0:
                             {
-                                this.backgroundObject.textureOffset.x = 0;
-                                this.backgroundObject.textureOffset.y = 0.1f;
+                                this.backgroundObject.textureOffset.x = -this.backgroundObject.textureOffset.x;
+                            }
+                            break;
+                        case 3:
+                            {
+                                this.backgroundObject.textureOffset.y = -this.backgroundObject.textureOffset.y;
                             }
                             break;
                     }
@@ -322,8 +328,8 @@ public class _main : MonoBehaviour
 
                         Vector2 mV = new Vector2( (cX - mPos.x) / cX, (cY - mPos.y) / cY);
 
-                        mPos.x = Mathf.Clamp(mPos.x + mV.x * this.mixMoveSpeed * Time.deltaTime, 0, Screen.width);
-                        mPos.y = Mathf.Clamp(mPos.y + mV.y * this.mixMoveSpeed * Time.deltaTime, 0, Screen.height);
+                        mPos.x = Mathf.Clamp(mPos.x + mV.x * this.mixMoveSpeed * 1.5f * Time.deltaTime, 0, Screen.width);
+                        mPos.y = Mathf.Clamp(mPos.y + mV.y * this.mixMoveSpeed * 1.5f * Time.deltaTime, 0, Screen.height);
                         //mPos.z = mPos.z;
                         
                         this.mixingObject.transform.position = Camera.main.ScreenToWorldPoint(mPos);
