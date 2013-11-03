@@ -18,3 +18,8 @@ File to load:
 Loaded File
 Level loaded
 Quiting
+Starting at 11/3/2013 3:28 PM
+Screen width: 1163
+Screen height: 639
+File to load: 
+Quiting

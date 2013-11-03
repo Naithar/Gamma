@@ -24,7 +24,7 @@ public class _main : MonoBehaviour
     public Vector2 mousePosition;
 
     public Vector2 mixMoveVector;
-    public float mixMoveSpeed = 100;
+    public float mixMoveSpeed = 50;
     public bool isFollowing = false;
     public float followingTime = 0;
 
@@ -37,6 +37,8 @@ public class _main : MonoBehaviour
 
     public float horizontalDiffDin;
     public float verticalDiffDin;
+
+    public bool objectWasHit = false;
 
     Data findDataObject()
     {
@@ -184,6 +186,8 @@ public class _main : MonoBehaviour
                     this.mixingObject.texturePath = this.data.redTextures[index];
                     this.constantObject.texturePath = this.data.blueTextures[index];
 
+                    this.objectWasHit = false;
+
                     switch (sceneSubtype)
                     {
                         case 3:
@@ -220,7 +224,7 @@ public class _main : MonoBehaviour
                     this.mixingObject.scale = new Vector2(0.75f, 0.75f);
                     this.mixingObject.textureColor = this.data.mixColor;
 
-                    switch(Random.Range(0, 3))
+                    switch(this.data.patternColor)
                     {
                         case 0:
                             {
@@ -234,7 +238,7 @@ public class _main : MonoBehaviour
                             break;
                         case 2:
                             {
-                                this.backgroundObject.textureColor = (this.data.backColor != Color.black) ? this.data.backColor : Color.white;
+                                this.backgroundObject.textureColor = Color.white;
                             }
                             break;
                     }
@@ -242,7 +246,7 @@ public class _main : MonoBehaviour
                     this.backgroundObject.textureScale.x = 10;
                     this.backgroundObject.textureScale.y = 5;
 
-                    switch (sceneSubtype)
+                    switch (this.data.patternDirection)
                     {
                         case 1:
                             {
@@ -251,6 +255,18 @@ public class _main : MonoBehaviour
                             }
                             break;
                         case 2:
+                            {
+                                this.backgroundObject.textureOffset.x = 0.1f;
+                                this.backgroundObject.textureOffset.y = 0;
+                            }
+                            break;
+                        case 3:
+                            {
+                                this.backgroundObject.textureOffset.x = 0;
+                                this.backgroundObject.textureOffset.y = -0.1f;
+                            }
+                            break;
+                        case 4:
                             {
                                 this.backgroundObject.textureOffset.x = 0;
                                 this.backgroundObject.textureOffset.y = 0.1f;
@@ -293,7 +309,25 @@ public class _main : MonoBehaviour
         {
             case 1:
                 {
-                    this.mixingObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - this.mousePosition.x, Screen.height - this.mousePosition.y, 50));
+                    if (!this.objectWasHit)
+                    {
+                        this.mixingObject.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - this.mousePosition.x, Screen.height - this.mousePosition.y, 50));
+                    }
+                    else
+                    {
+                        //this.mixingObject.transform.position;
+                        Vector3 mPos = Camera.main.WorldToScreenPoint(this.mixingObject.transform.position);
+                        float cX = Screen.width / 2;
+                        float cY = Screen.height / 2;
+
+                        Vector2 mV = new Vector2( (cX - mPos.x) / cX, (cY - mPos.y) / cY);
+
+                        mPos.x = Mathf.Clamp(mPos.x + mV.x * this.mixMoveSpeed * Time.deltaTime, 0, Screen.width);
+                        mPos.y = Mathf.Clamp(mPos.y + mV.y * this.mixMoveSpeed * Time.deltaTime, 0, Screen.height);
+                        //mPos.z = mPos.z;
+                        
+                        this.mixingObject.transform.position = Camera.main.ScreenToWorldPoint(mPos);
+                    }
                 }
                 break;
             case 2:
@@ -388,6 +422,12 @@ public class _main : MonoBehaviour
         //change for scene subtype
             case SceneType.Task:
                 {
+                    if (this.data.hitObject && !this.objectWasHit && this.data.sceneSubtype == 1)
+                    {
+                        this.objectWasHit = true;
+                        return;
+                    }
+
                     Vector3 constPos = Camera.mainCamera.WorldToScreenPoint(this.constantObject.transform.position);
                     Vector3 mixPos = Camera.mainCamera.WorldToScreenPoint(this.mixingObject.transform.position);
 
@@ -411,19 +451,26 @@ public class _main : MonoBehaviour
                                 if (isHit())
                                 {
                                     this.currentHits++;
-                                    if (this.currentHits % this.data.userHits == 0)
+                                    /*if (this.currentHits % this.data.userHits == 0)
                                     {
                                         ReloadObjects();
-                                    }
+                                    }*/
                                 }
                                 else
                                 {
                                     this.currentMisses++;
-
+                                    /*
                                     if (this.currentMisses % this.data.userMisses == 0)
                                     {
                                         ReloadObjects();
-                                    }
+                                    }*/
+                                }
+
+                                this.objectWasHit = false;
+
+                                if ( (this.currentHits + this.currentMisses) % this.data.userHits == 0)
+                                {
+                                    ReloadObjects();
                                 }
 
                                 GetNextLevel();

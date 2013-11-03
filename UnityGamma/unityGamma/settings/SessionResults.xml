@@ -15,5 +15,19 @@
       <miss>0</miss>
       <balls>50</balls>
     </OuterData>
+    <OuterData>
+      <patientName>123</patientName>
+      <sessionDate>2013-11-03T00:00:00+04:00</sessionDate>
+      <sessionLength>11</sessionLength>
+      <sessionType>Демонстрационный</sessionType>
+      <fromMonitor>65</fromMonitor>
+      <horDev>408.75675675675677</horDev>
+      <horDevDin>0</horDevDin>
+      <verDev>202.08108108108109</verDev>
+      <verDevDin>0</verDevDin>
+      <hits>0</hits>
+      <miss>37</miss>
+      <balls>0</balls>
+    </OuterData>
   </sessionResults>
 </SessionResults>

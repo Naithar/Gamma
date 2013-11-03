@@ -30,7 +30,7 @@ public class Data : MonoBehaviour
 
     public float userScore;
     public int userHits;
-    public int userMisses;
+    //public int userMisses;
     public float userTime;
     public int sUserHits;
     public int sUserMisses;
@@ -53,6 +53,11 @@ public class Data : MonoBehaviour
 
     public float horizontalDiffDin;
     public float verticalDiffDin;
+
+    public bool hitObject;
+
+    public int patternDirection;
+    public int patternColor;
     //other info form inner data
 
     public List<string> redTextures = new List<string>();
@@ -141,7 +146,7 @@ public class Data : MonoBehaviour
                             case 1:
                             case 2:
                                 {
-                                    if (owner.currentMisses >= this.userMisses || owner.currentHits >= this.userHits)
+                                    if (owner.currentMisses + owner.currentHits >= this.userHits)
                                     {
                                         changeScene(owner);
                                         return true;
@@ -191,6 +196,7 @@ public class Data : MonoBehaviour
                 this.rotation = innerData.tasks[index].rotation;
                 this.blinkType = innerData.tasks[index].blinkType;
                 this.blinkTime = innerData.tasks[index].blinkPeriod;
+                this.hitObject = innerData.tasks[index].hitObject;
 
                 LoadTextures();
             }
@@ -206,7 +212,8 @@ public class Data : MonoBehaviour
                 this.sceneType = SceneType.Pattern;
                 this.sceneSubtype = innerData.patterns[index].type;
                 this.sceneTime = innerData.patterns[index].length;
-
+                this.patternDirection = innerData.patterns[index].direction;
+                this.patternColor = innerData.patterns[index].color;
                 LoadTextures();
             }
         }
@@ -282,8 +289,8 @@ public class Data : MonoBehaviour
 
             this.userScore = 0;
 
-            this.userHits = innerData.hitChange;
-            this.userMisses = innerData.missChange;
+            this.userHits = innerData.showTimes;
+            //this.userMisses = innerData.missChange;
             this.userTime = 0;
 
             this.objectScale = innerData.koef / 100.0f;

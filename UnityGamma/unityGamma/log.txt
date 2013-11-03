@@ -5,3 +5,10 @@ File to load: C:\Users\Naithar\Documents\Unity Test Projects\UnityGamma\bin\234.
 Loaded File
 Level loaded
 Quiting
+Starting at 11/3/2013 3:38 PM
+Screen width: 1920
+Screen height: 1080
+File to load: C:\Users\Naithar\Documents\Unity Test Projects\UnityGamma\bin\234.gsf
+Loaded File
+Level loaded
+Quiting
