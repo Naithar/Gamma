@@ -111,8 +111,8 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Слева направо",
             "Справа налево",
+            "Слева направо",
             "Сверху вниз",
             "Снизу вверх"});
             this.comboBox2.Location = new System.Drawing.Point(15, 87);
